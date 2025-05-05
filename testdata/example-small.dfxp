@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-16'?>
+<tt xmlns="http://www.w3.org/ns/ttml" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:lang="en" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" ttp:frameRate="25" ttp:frameRateMultiplier="1 1" ttp:timeBase="media">
+  <head>
+    <styling>
+      <style xml:id="Swift" xmlns:tts="http://www.w3.org/ns/ttml#styling" tts:color="white" tts:textAlign="left" tts:extent="720px 576px" tts:fontFamily="Arial" tts:fontSize="18"/>
+    </styling>
+  </head>
+  <body>
+    <div style="Swift">
+      <p xml:id="Sub0" xml:space="preserve" begin="00:01:21.960" end="00:01:25.480" xmlns:tts="http://www.w3.org/ns/ttml#styling" tts:textAlign="center" origin="224px 433px">
+        <span>I test</span>
+      </p>
+    </div>
+  </body>
+</tt>

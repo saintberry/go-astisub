@@ -312,8 +312,12 @@ func ReadFromTTML(i io.Reader) (o *Subtitles, err error) {
 	}
 	if encode, _, certain := charset.DetermineEncoding(content, ""); encode == charmap.Windows1252 && !certain {
 		for start := 0; start < len(content); start += 1024 {
-			if _, name, _ := charset.DetermineEncoding(content[start:start+1024], ""); name == "utf-8" {
-				contentType ="text/html; charset=utf-8"
+			lenEnd := start + 1024
+			if lenEnd > len(content) {
+				lenEnd = len(content)
+			}
+			if _, name, _ := charset.DetermineEncoding(content[start:lenEnd], ""); name == "utf-8" {
+				contentType = "text/html; charset=utf-8"
 			}
 		}
 	}

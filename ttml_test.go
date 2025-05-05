@@ -60,7 +60,7 @@ func TestTTMLWithNoBreakSpace(t *testing.T) {
 	s, err := astisub.ReadFromTTML(file)
 	a.Nil(err)
 
-	var buf = &bytes.Buffer{}
+	buf := &bytes.Buffer{}
 	err = s.WriteToWebVTT(buf)
 	a.Nil(err)
 
@@ -69,3 +69,21 @@ func TestTTMLWithNoBreakSpace(t *testing.T) {
 
 	a.Equal(buf.Bytes()[i+9:i+12], []byte{0x20, 0xc2, 0xa0})
 }
+
+func TestTTMLSmallInput(t *testing.T) {
+	a := assert.New(t)
+	file, err := os.Open("./testdata/example-small.dfxp")
+	a.Nil(err)
+
+	s, err := astisub.ReadFromTTML(file)
+	a.Nil(err)
+
+	buf := &bytes.Buffer{}
+	err = s.WriteToWebVTT(buf)
+	a.Nil(err)
+
+	str := buf.String()
+
+	a.Equal("WEBVTT\n\n1\n00:01:21.960 --> 00:01:25.480\nI test\n", str)
+}
+
